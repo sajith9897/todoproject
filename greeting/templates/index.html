@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <script src="{% static 'script.js' %}"></script>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <button onclick="changeGreeting()">Click</button>
+
+    <p>Count is {{x}}</p>
+
+    <p>Count is {{zx|safe}}</p>
+
+    {% if l > 20 %}
+    <p>Count is {{l}}</p>
+    {% else %}
+    <p>Count is not enough</p>
+    {% endif %}
+</body>
+</html>
