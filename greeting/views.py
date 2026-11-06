@@ -1,17 +1,12 @@
-# Create your views here.
 from django.shortcuts import render
+from .forms import LoginForm
 def greeting(request):
-    count= 23
-    return render(request,'index.html',{'x': count})
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            return render(request,'form-data.html',{
+                'email': form['email'].value,
+                'password': form['password'].value
 
-def greet(request):
-    counts = '<b>23</b>'
-    return render(request,'index.html',{'zx':counts})
-
-def kick(request):
-    count = 23
-    return render(request,'index.html',{'l':count})
-
-def joke(request):
-    students = ['Ajay', 'Vineeth','Sudheesh']
-    return render(request,'index.html',{'students':students})
+            })
+    return render(request,'index.html')
