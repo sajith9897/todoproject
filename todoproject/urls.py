@@ -19,6 +19,4 @@ from greeting import views
 
 urlpatterns = [
   path('', views.greeting),
-  path('greet', views.greet),
-  path('kick', views.kick)
 ]
