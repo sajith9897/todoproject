@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'contactus',
     'products',
     'productsapi','rest_framework',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'filemaker'
 ]
 
 REST_FRAMEWORK = {
@@ -91,14 +92,13 @@ WSGI_APPLICATION = 'todoproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'project_db',#Name of the database created for this project
-        'USER': 'root',#Enter your mysql username
-        'PASSWORD': '',#Enter your mysql password
-        'HOST': 'localhost',
+        'NAME': 'project_db',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',
         'PORT': '3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -135,6 +135,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+import os
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = 'media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
